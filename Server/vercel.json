@@ -1,18 +1,10 @@
 {
-  "version": 2,
-  "builds": [
-    { "src": "app.js", "use": "@vercel/node" }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/app.js",
-      "headers": {
-        "Access-Control-Allow-Origin": "https://virtual-outfit-customisation-w41l.vercel.app",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization",
-        "Access-Control-Allow-Credentials": "true"
-      }
-    }
+    "version": 2,
+    "builds": [{ "src": "app.js", "use": "@vercel/node" }],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/app.js"
+  }
   ]
-}
+  }
