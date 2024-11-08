@@ -1,25 +1,24 @@
 const express = require("express");
 const connectDB = require("./config/database");
 const cookieParser = require("cookie-parser");
+const { userAuth } = require('./middleware/auth');
+const cors = require('cors');
+
 const app = express();
 
-// CORS Middleware
-const allowedOrigins = ["https://virtual-outfit-customisation-w41l.vercel.app"];
-app.use((req, res, next) => {
-    const origin = req.headers.origin;
-    if (allowedOrigins.includes(origin)) {
-        res.setHeader("Access-Control-Allow-Origin", origin);
-    }
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    res.header("Access-Control-Allow-Credentials", "true");
-    
-    // Handle preflight requests
-    if (req.method === "OPTIONS") {
-        return res.sendStatus(200);
-    }
-    next();
-});
+// CORS configuration options
+const corsOptions = {
+    origin: "https://virtual-outfit-customisation-w41l.vercel.app",
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+};
+
+// Apply CORS to all routes
+app.use(cors(corsOptions));
+
+// Handle preflight requests for all routes
+app.options('*', cors(corsOptions));
 
 app.use(express.json());
 app.use(cookieParser());
@@ -32,13 +31,12 @@ const productRouter = require("./routes/product");
 const cartRouter = require("./routes/cart");
 
 // Apply routes
-app.use("/auth", authRouter);
-app.use("/profile", profileRouter);
-app.use("/requests", requestRouter);
-app.use("/product", productRouter);
-app.use("/cart", cartRouter);
+app.use("/", authRouter);
+app.use("/", profileRouter);
+app.use("/", requestRouter);
+app.use("/", productRouter);
+app.use("/", cartRouter);
 
-// Root route
 app.get("/", (req, res) => {
     res.send("<h1>HI</h1>");
 });
