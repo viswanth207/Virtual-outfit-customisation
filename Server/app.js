@@ -7,7 +7,7 @@ const cors = require('cors');
 
 // Configure CORS to allow requests from the frontend origin
 app.use(cors({
-    origin: "https://virtual-outfit-bawy.vercel.app", // Removed trailing slash
+    origin: "https://virtual-outfit-customisation-w41l.vercel.app", // Removed trailing slash
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
