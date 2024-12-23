@@ -1,1 +1,1 @@
-export const BASE_URL = "https://personalized-outfit-customization-mdxt8tp9c.vercel.app";
+export const BASE_URL = "https://virtual-outfit-customisation.vercel.app";
