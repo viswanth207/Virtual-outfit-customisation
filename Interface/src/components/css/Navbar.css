@@ -10,7 +10,12 @@
   width: 100%;
   z-index: 1000;
 }
-
+.owner-text {
+  font-size: 14px;
+  color: white;
+  margin-left: 10px;
+  font-style: italic;
+}
 /* Logo styling */
 .logo-container {
   flex: 1;
