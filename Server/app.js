@@ -16,9 +16,13 @@ const requestRouter = require("./routes/requests");
 const productRouter = require("./routes/product");
 const cartRouter = require("./routes/cart");
 
+app.use(cors());
+
+// Or specify allowed origins
 app.use(cors({
-    origin: "https://virtual-outfit-customisation-frnt.vercel.app",
-    credentials: true,
+  origin: 'https://virtual-outfit-customisation-frnt.vercel.app',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
 app.use("/",authRouter);
