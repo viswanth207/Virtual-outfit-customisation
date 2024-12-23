@@ -31,6 +31,7 @@ const Navbar = () => {
       {/* Logo Section */}
       <div className="logo-container">
         <img src="images/fs-removebg-preview.jpg" alt="Logo" className="logo" />
+         <span className="owner-text">Owned by SAI VISWANTH CHIRUMAMILLA</span>
       </div>
 
       { !user && (  <div className="links-container">
