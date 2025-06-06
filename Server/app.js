@@ -15,7 +15,7 @@ app.use(cookieParser());
 
 // CORS configuration
 app.use(cors({
-  origin: 'https://virtual-outfit-customisation-frnt.vercel.app/login', // Frontend URL
+  origin: 'https://virtual-outfit-customisation-frnt.vercel.app', // Frontend URL
   methods: ['GET', 'POST', 'OPTIONS'], // Allowed methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
   credentials: true, // Allow cookies to be sent
