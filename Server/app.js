@@ -15,11 +15,14 @@ app.use(cookieParser());
 
 // CORS configuration
 app.use(cors({
-  origin: 'https://virtual-outfit-customisation-frnt.vercel.app', // Frontend URL
-  methods: ['GET', 'POST', 'OPTIONS'], // Allowed methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-  credentials: true, // Allow cookies to be sent
+  origin: "https://virtual-outfit-customisation-frnt.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true
 }));
+
+// Handle preflight requests globally
+app.options("*", cors());
+
 
 // Routes
 const authRouter = require("./routes/auth");
