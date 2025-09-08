@@ -20,9 +20,6 @@ app.use(cors({
   credentials: true
 }));
 
-// Handle preflight requests globally
-app.options("*", cors());
-
 
 // Routes
 const authRouter = require("./routes/auth");
