@@ -30,6 +30,6 @@ app.get("/", (req, res) => {
     res.send("<h1>HI</h1>");
 });
 
-
-module.exports = app;
 connectDB();
+module.exports = app;
+
